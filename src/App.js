@@ -15,7 +15,7 @@ function App() {
 const [cards, setCards] = useState([])
 
 const prepareCards =() =>{
-  setCards(cardList);
+  setCards([...cardList, ...cardList]);
 }
 
 useEffect(() => {
@@ -23,7 +23,7 @@ useEffect(() => {
 }, [])
 
 
-  return  <div className="App">
+  return  <div className="container">
       <h1>Memory App</h1>
       <button>Let's Play</button>
 
