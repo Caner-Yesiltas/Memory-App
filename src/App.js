@@ -14,8 +14,9 @@ const cardList = [
 
 function App() {
   const [cards, setCards] = useState([]);
-  const [selectedOne, setSelectedOne] = useState(null)
-  const [selectedTwo, setSelectedTwo] = useState(null)
+  const [selectedOne, setSelectedOne] = useState(null);
+  const [selectedTwo, setSelectedTwo] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
 
   const prepareCards = () => {
@@ -34,13 +35,22 @@ function App() {
     prepareCards();
   }, []);
 
+  useEffect(() => {
+    if (selectedOne && selectedTwo) {
+      setDisabled(true);
+
+    }
+   
+  }, [selectedOne, selectedTwo]);
+  
+
   return (
     <div className='container'>
       <h1>Memory App</h1>
       <button onClick={prepareCards} >Let's Play</button>
       <div className='card-grid'>
         {cards.map((card) => (
-          <MemoryCard card={card} key={card.id} handleSelected={handleSelected}  />
+          <MemoryCard card={card} key={card.id} handleSelected={handleSelected} disabled={disabled} />
         ))}
       </div>
     </div>

@@ -1,8 +1,11 @@
 import React from 'react'
 
-const MemoryCard = ({card, handleSelected}) => {
+const MemoryCard = ({card, handleSelected, disabled}) => {
     const handleClick = () =>{
-        handleSelected(card);
+        if(!disabled) {
+            handleSelected(card);
+        }
+      
 
     }
 
