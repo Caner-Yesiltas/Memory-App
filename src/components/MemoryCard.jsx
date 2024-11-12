@@ -1,10 +1,15 @@
 import React from 'react'
 
-const MemoryCard = ({card}) => {
+const MemoryCard = ({card, handleSelected}) => {
+    const handleClick = () =>{
+        handleSelected(card);
+
+    }
+
   return (
     <div className='card'>
     <img className='cardFront' src={card.path} alt='' />
-    <img className='cardBack' src='/img/cover.jpeg' alt='' />
+    <img className='cardBack'  onClick={handleClick}  src='/img/cover.jpeg' alt='' />
   </div>
   )
 }
