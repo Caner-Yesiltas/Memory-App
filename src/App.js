@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './styles/App.css';
 import { useEffect } from 'react';
+import MemoryCard from './components/MemoryCard';
 
 const cardList = [
   { path: '/img/1.jpeg' },
@@ -16,7 +17,7 @@ function App() {
 
   const prepareCards = () => {
   
-    const sortedCards = [[...cardList, ...cardList]].sort(()=>0.5 - Math.random()).map((card)=>({...card, id:Math.random()}))
+    const sortedCards = [...cardList, ...cardList].sort(()=>0.5 - Math.random()).map((card)=>({...card, id:Math.random()}))
 
     setCards(sortedCards);
     
@@ -29,13 +30,10 @@ function App() {
   return (
     <div className='container'>
       <h1>Memory App</h1>
-      <button>Let's Play</button>
+      <button onClick={prepareCards} >Let's Play</button>
       <div className='card-grid'>
         {cards.map((card) => (
-          <div className='card'>
-            <img className='cardFront' src={card.path} alt='' />
-            <img className='cardBack' src='/img/cover.jpeg' alt='' />
-          </div>
+          <MemoryCard card={card} key={card.id} />
         ))}
       </div>
     </div>
