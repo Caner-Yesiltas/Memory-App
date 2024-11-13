@@ -50,6 +50,37 @@ function App() {
               // TODO: Review complex state management in useEffect
               // TODO: Understand deep card state updates
               // TODO: Consider refactoring nested state logic !!!
+
+              /*
+
+
+              Note: I wrote this explanation in Turkish because React state management 
+has a complex structure that can be quite confusing for those encountering 
+it for the first time, and I wanted to explain it more clearly.
+
+
+Cards state yönetiminde karşılaşılan kafa karıştırıcı durumlar:
+
+1. setCards kullanırken aslında cards state'ini kullanıyoruz:
+  - cards: ilk baştaki state'imiz tüm kartları içeriyor
+  - setCards ile bu cards state'ini güncelliyoruz
+
+2. setCards(currentCards => {}) yazarken:
+  - currentCards parametresi aslında cards state'inin kendisi
+  - Ama current dememizin sebebi artık ilk hali değil
+  - Her state güncellemesinde kartlar güncellendiği için en son hali
+
+3. En kafa karıştırıcı kısım:
+  currentCards.map(card => {})
+  - currentCards (yani güncellenmiş cards state'i) içinde 
+  - card parametresiyle tekrar dönüyoruz
+  - Bu card, en baştaki cards state'inin güncellenmiş halindeki her bir kart
+
+Yani iç içe karmaşık gibi görünen yapının sebebi:
+- cards -> state güncelleniyor 
+- currentCards -> güncellenen state'i temsil ediyor
+- card -> güncellenen state içindeki her bir kartı temsil ediyor
+*/
             }
           });
         });
@@ -79,6 +110,9 @@ function App() {
             key={card.id}
             handleSelected={handleSelected}
             disabled={disabled}
+            rotated={
+              card === selectedOne || card === selectedTwo || card.matched
+            }
           />
         ))}
       </div>

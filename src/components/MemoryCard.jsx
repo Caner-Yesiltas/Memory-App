@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MemoryCard = ({card, handleSelected, disabled}) => {
+const MemoryCard = ({card, handleSelected, disabled, rotated}) => {
     const handleClick = () =>{
         if(!disabled) {
             handleSelected(card);
@@ -11,8 +11,11 @@ const MemoryCard = ({card, handleSelected, disabled}) => {
 
   return (
     <div className='card'>
-    <img className='cardFront' src={card.path} alt='' />
-    <img className='cardBack'  onClick={handleClick}  src='/img/cover.jpeg' alt='' />
+        <div className={rotated ? "rotated":""}>   
+        <img className='cardFront' src={card.path} alt='' />
+        <img className='cardBack'  onClick={handleClick}  src='/img/cover.jpeg' alt='' />
+        </div>
+   
   </div>
   )
 }

@@ -25,4 +25,30 @@ body {
   width: 100%;
   border: 0.125rem solid white;
   border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+}
+
+.card .cardFront {
+  position: absolute;
+  transform: rotateY(90deg);
+  transition: all ease-in 0.2s;
+}
+
+.card .cardBack {
+  transform: rotateY(0deg);
+  transition: all ease-in 0.2s;
+}
+
+.rotated .cardFront {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+.rotated .cardBack {
+  transform: rotateY(90deg);
+  transition-delay: 0.2s;
 }
