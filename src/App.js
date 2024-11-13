@@ -17,6 +17,7 @@ function App() {
   const [selectedOne, setSelectedOne] = useState(null);
   const [selectedTwo, setSelectedTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const [score, setScore] = useState(0);
 
   const prepareCards = () => {
     const sortedCards = [...cardList, ...cardList]
@@ -25,6 +26,7 @@ function App() {
     setCards(sortedCards);
     setSelectedOne(null);
     setSelectedTwo(null);
+    setScore(0);
   };
 
   const handleSelected = (card) => {
@@ -52,12 +54,9 @@ function App() {
               // TODO: Consider refactoring nested state logic !!!
 
               /*
-
-
-              Note: I wrote this explanation in Turkish because React state management 
+Note: I wrote this explanation in Turkish because React state management 
 has a complex structure that can be quite confusing for those encountering 
 it for the first time, and I wanted to explain it more clearly.
-
 
 Cards state yönetiminde karşılaşılan kafa karıştırıcı durumlar:
 
@@ -97,12 +96,14 @@ Yani iç içe karmaşık gibi görünen yapının sebebi:
     setSelectedOne(null);
     setSelectedTwo(null);
     setDisabled(false);
+    setScore((prevScore) => prevScore + 1);
   };
 
   return (
     <div className='container'>
       <h1>Memory App</h1>
       <button onClick={prepareCards}>Let's Play</button>
+      <p>{score}</p>
       <div className='card-grid'>
         {cards.map((card) => (
           <MemoryCard
