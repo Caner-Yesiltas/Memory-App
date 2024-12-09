@@ -34,7 +34,7 @@ A challenging and entertaining memory card game built with React. Players can te
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/memory-game.git
+git clone https://github.com/caneryesiltas/memory-game.git
 
 # Navigate to project directory
 cd memory-game
