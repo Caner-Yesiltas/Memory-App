@@ -105,12 +105,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📫 Contact
 
-Your Name - youremail@example.com
+Your Name - caneryesiltas1@gmail.com
 
 Project Link: [https://memory-app-seven.vercel.app/](https://memory-app-seven.vercel.app/)
 
 ---
 
 <div align="center">
-  Made with ❤️ by [Your Name]
+  Made with ❤️ by Caner Yesiltas
 </div>
